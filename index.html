@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MC Agro Social • Estúdio de Artes</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#17352a;background:#f5f5f1}*{box-sizing:border-box}
+body{margin:0}.top{background:#123c2b;color:white;padding:19px max(20px,calc((100vw - 1150px)/2));display:flex;align-items:center;justify-content:space-between}.top b{font-size:21px}.top small{color:#e2c689}
+main{max-width:1150px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:380px 1fr;gap:22px}
+.panel,.preview{background:#fff;border:1px solid #e3e6de;border-radius:17px;padding:22px;box-shadow:0 8px 25px #1d3b2910}
+h1{font-size:22px;margin:0 0 8px}h2{font-size:17px;margin:0 0 18px}p,.note{color:#66736d;font-size:13px;line-height:1.55}
+label{font-size:12px;font-weight:700;display:block;margin:15px 0 6px}input,textarea{width:100%;font:inherit;border:1px solid #ccd5cc;border-radius:9px;padding:11px;outline-color:#2e7658;background:white}textarea{min-height:75px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}button{border:0;border-radius:10px;padding:12px 16px;background:#174b36;color:white;font-weight:700;cursor:pointer}button.secondary{background:#efece3;color:#174b36}button:disabled{opacity:.5;cursor:wait}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.actions button{flex:1}
+#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}#cards img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;background:#e9ece7}#cards figure{margin:0}#cards figcaption{margin-top:5px;font-size:11px;color:#69756e}
+#message{font-size:13px;color:#246145;min-height:20px}#message.error{color:#b22c29}.footer{max-width:1150px;margin:0 auto 35px;padding:0 18px;color:#77817b;font-size:12px}
+@media(max-width:800px){main{grid-template-columns:1fr}.top{padding:16px 20px}}
+</style></head>
+<body><header class="top"><div><b>MC AGRO <span style="color:#daba68">SOCIAL</span></b><div><small>Estúdio independente de carrosséis</small></div></div><small>V1 • Sem IA paga</small></header>
+<main><section class="panel"><h1>Criar carrossel</h1><p>Preencha os dados verdadeiros de um imóvel. Nada será publicado automaticamente.</p>
+<label for="title">Título do imóvel</label><input id="title" value="Fazenda demonstrativa" maxlength="90">
+<div class="grid2"><div><label for="city">Município</label><input id="city" value="Machadinho d'Oeste"></div><div><label for="state">Estado</label><input id="state" value="RO" maxlength="2"></div></div>
+<div class="grid2"><div><label for="area">Área (hectares)</label><input id="area" type="number" min="0.01" step="any" value="120"></div><div><label for="price">Preço (R$)</label><input id="price" type="number" min="1" step=".01" value="1850000"></div></div>
+<label for="features">Características verificadas</label><textarea id="features">Área rural para demonstração visual. Dados fictícios.</textarea>
+<label for="link">Link público do imóvel (opcional)</label><input id="link" type="url" placeholder="https://mcimoveisrurais.com.br/...">
+<label for="contact">Contato/WhatsApp (opcional)</label><input id="contact" placeholder="Informe o contato real">
+<label for="photos">Fotos do imóvel (até 8 arquivos JPEG/PNG/WebP)</label><input id="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+<p class="note">Sem fotos, a prévia usa uma composição gráfica claramente marcada como demonstração. Não substitui fotografias reais.</p>
+<label><input id="demo" type="checkbox" checked style="width:auto;margin-right:6px"> Modo demonstração (marca todas as artes)</label>
+<div class="actions"><button id="generate">Gerar 5 artes</button><button class="secondary" id="download" disabled>Baixar ZIP</button></div><p id="message" role="status"></p></section>
+<section class="preview"><h2>Prévia do carrossel · 1080 × 1350</h2><div id="cards"><p>As cinco artes aparecerão aqui.</p></div><label for="caption">Legenda gerada (editável)</label><textarea id="caption" placeholder="Gere primeiro o carrossel"></textarea><div class="actions"><button class="secondary" id="copy">Copiar legenda</button></div></section></main>
+<div class="footer">MC Agro Social · Projeto independente. Não conecte tokens de Instagram ou Base44 nesta página. Hospedagem pública não equivale a API protegida.</div>
+<script src="./app.js"></script></body></html>
